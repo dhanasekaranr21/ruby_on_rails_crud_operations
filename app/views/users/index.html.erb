@@ -1,10 +1,29 @@
-<table>
-  <% @users.each do |user| %>
+<div class="container">
+<div class="d-flex justify-content-center align-items-center">
+<table class="table">
+  <thead>
     <tr>
-      <td><%= link_to user.name, user_path(user) %></td>
-      <td><%= user.age %></td>
-      <td><%= button_to 'Edit', edit_user_path(user), method: 'get'%></td>
-      <td><%= button_to 'Remove', user_path(user), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
+      <th>User ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Edit</th>
+      <th>Remove</th>
+      <th>View</th>
+    </tr>
+  </thead>
+ <tbody>
+   <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id  %>
+        <td><%= user.name %></td>
+        <td><%= user.age %></td>
+        <td><%= button_to 'Edit', edit_user_path(user), method: 'get',class:"btn btn-primary"%></td>
+        <td><%= button_to 'Remove', user_path(user), method: 'delete', data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+        <td><%= link_to 'Show', user_path(user),class:"btn btn-info"%></td>
+      </tr>
+   <% end %>
+ </tbody>
 </table>
-<%= link_to "Add a New user", new_user_path %>
+</div>
+<%=link_to "Add a New user", new_user_path,class:"btn btn-success" %>
+</div>

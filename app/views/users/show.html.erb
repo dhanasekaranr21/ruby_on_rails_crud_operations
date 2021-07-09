@@ -1,4 +1,17 @@
-<h1><%=  @user.name %></h1>
-<h2><%= @user.age %></h2>
-<%= link_to 'Remove', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to  "Edit", edit_user_path(@user.id),method: :get %>
+<div class="container">
+  <div class="row  d-flex justify-content-center align-items-center">
+    <div class="col-md-6 col-sm-4 col-lg-6">
+      <div class="card border-primary border-3">
+        <h5 class="card-header border-primary border-2">User Detail</h5>
+        <div class="card-body">
+            <h5 class="card-title">User Name</h5>
+            <p class="card-text"><%= @user.name %></p>
+            <h5 class="card-title">Age</h5>
+            <p class="card-text"><%= @user.age %></p>
+            <%= link_to 'Remove', @user, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %>
+            <%= link_to  "Edit", edit_user_path(@user.id),method: :get,class:"btn btn-warning" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
