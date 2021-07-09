@@ -30,7 +30,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     if @user.valid?
-      redirect_to user_path(@user)
+      redirect_to :action => 'index'
+      flash[:success]="user updated successfully"
     else
     flash[:error]="fill all the fields"
     redirect_to :action => 'edit'
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to users_path
+    redirect_to :action => 'index'
   end
 
   private
