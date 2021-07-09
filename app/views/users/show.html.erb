@@ -5,10 +5,10 @@
         <h5 class="card-header border-primary border-2">User Detail</h5>
         <div class="card-body">
             <h5 class="card-title">User Name</h5>
-            <p class="card-text"><%= @user.name %></p>
+            <p class="card-text"><kbd><%= @user.name %></kbd></p>
             <hr>
             <h5 class="card-title">Age</h5>
-            <p class="card-text"><%= @user.age %></p>
+            <p class="card-text"><kbd><%= @user.age %></kbd></p>
             <hr>
             <%= link_to 'Remove', @user, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %>
             <%= link_to  "Edit", edit_user_path(@user.id),method: :get,class:"btn btn-warning" %>
