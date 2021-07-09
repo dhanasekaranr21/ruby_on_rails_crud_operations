@@ -12,9 +12,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params)
-
-    redirect_to users_path
+    @user = User.create(user_params)
+    if @user.valid? && @user.save
+      redirect_to users_path
+      flash[:success]="user created successfully"
+    else
+      flash[:error]="fill all the fields"
+      redirect_to :action => 'new'
+    end
   end
 
   def edit
@@ -24,8 +29,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-
-    redirect_to user_path(@user)
+    if @user.valid?
+      redirect_to user_path(@user)
+    else
+    flash[:error]="fill all the fields"
+    redirect_to :action => 'edit'
+    end
   end
 
   def destroy
@@ -34,7 +43,6 @@ class UsersController < ApplicationController
 
     redirect_to users_path
   end
-
 
   private
 
