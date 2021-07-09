@@ -1,18 +1,27 @@
 <div class="container">
   <div class="row  d-flex justify-content-center align-items-center">
     <div class="col-md-6">
-      <h3>Update User Details</h3>
-      <%= form_with model: @user do |form|%>
-        <div class="input-group mb-3">
-          <%= form.text_field :name, placeholder: "name",class:"form-control" %>
+     <div class="card border-warning border-3"> 
+      <h4 class="card-header  border-warning border-2">Update User Details</h4>
+        <div class="card-body">
+          <%= form_with model: @user do |form|%>
+            <div class="input-group mb-3">
+              <%= form.text_field :name, placeholder: "name",class:"form-control" %>
+            </div>
+            <div class="input-group mb-3">
+              <%= form.text_field :age, placeholder: "age",class:"form-control" %>
+            </div>
+            <div class="input-group mb-3">
+              <%= form.submit class:"btn btn-success" %>
+            </div>
+          <% end %>
+          <%if flash[:error]%>
+              <div class="alert alert-danger" role="alert">
+                <%= flash[:error] %>
+              </div>
+          <% end %>
         </div>
-        <div class="input-group mb-3">
-          <%= form.text_field :age, placeholder: "age",class:"form-control" %>
-        </div>
-        <div class="input-group mb-3">
-          <%= form.submit class:"btn btn-success" %>
-        </div>
-      <% end %>
+      </div>
     <div>
   <div>
 <div>

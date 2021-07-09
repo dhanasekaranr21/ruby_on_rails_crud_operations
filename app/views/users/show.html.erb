@@ -6,8 +6,10 @@
         <div class="card-body">
             <h5 class="card-title">User Name</h5>
             <p class="card-text"><%= @user.name %></p>
+            <hr>
             <h5 class="card-title">Age</h5>
             <p class="card-text"><%= @user.age %></p>
+            <hr>
             <%= link_to 'Remove', @user, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %>
             <%= link_to  "Edit", edit_user_path(@user.id),method: :get,class:"btn btn-warning" %>
         </div>
